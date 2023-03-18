@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
 import './App.css';
+import Navbar from './components/1-Navbar';
+import Hero from './components/2-Hero';
+import Title from './components/3-Title';
+import Projects from './components/4-Projects';
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  useEffect(() => {
+    const heroElement = document.getElementById('hero');
+    if (heroElement) {
+      heroElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Hero />
+      <Title />
+      <Projects />
     </div>
   );
 }
